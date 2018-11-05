@@ -1,0 +1,6 @@
+#! /bin/sh
+
+for i in "$*"
+do
+	cp $i /mnt/c/Users/Brayden/Desktop/
+done

@@ -525,49 +525,6 @@ rAUD4GO	EQU rNR44	; silly name!
 
 ;***************************************************************************
 ;*
-;* Cart related
-;*
-;***************************************************************************
-
-ROM_NOMBC         EQU 0
-ROM_MBC1          EQU 1
-ROM_MBC1_RAM      EQU 2
-ROM_MBC1_RAM_BAT  EQU 3
-ROM_MBC2          EQU 5
-ROM_MBC2_BAT      EQU 6
-ROM_NOMBC_RAM     EQU 8
-ROM_NOMBC_RAM_BAT EQU 9
-
-ROM_SIZE_256KBIT  EQU 0
-ROM_SIZE_512KBIT  EQU 1
-ROM_SIZE_1M       EQU 2
-ROM_SIZE_2M       EQU 3
-ROM_SIZE_4M       EQU 4
-ROM_SIZE_8M       EQU 5
-ROM_SIZE_16M      EQU 6
-
-ROM_SIZE_32KBYTE  EQU 0
-ROM_SIZE_64KBYTE  EQU 1
-ROM_SIZE_128KBYTE EQU 2
-ROM_SIZE_256KBYTE EQU 3
-ROM_SIZE_512KBYTE EQU 4
-ROM_SIZE_1MBYTE   EQU 5
-ROM_SIZE_2MBYTE   EQU 6
-
-RAM_SIZE_0KBIT   EQU 0
-RAM_SIZE_16KBIT  EQU 1
-RAM_SIZE_64KBIT  EQU 2
-RAM_SIZE_256KBIT EQU 3
-RAM_SIZE_1MBIT   EQU 4
-
-RAM_SIZE_0KBYTE   EQU 0
-RAM_SIZE_2KBYTE   EQU 1
-RAM_SIZE_8KBYTE   EQU 2
-RAM_SIZE_32KBYTE  EQU 3
-RAM_SIZE_128KBYTE EQU 4
-
-;***************************************************************************
-;*
 ;* Keypad related
 ;*
 ;***************************************************************************
@@ -605,16 +562,6 @@ SCRN_VX    EQU  256 ; Virtual width of screen in pixels
 SCRN_VY    EQU  256 ; Virtual height of screen in pixels
 SCRN_VX_B  EQU  32  ; Virtual width of screen in bytes
 SCRN_VY_B  EQU  32  ; Virtual height of screen in bytes
-
-NINTENDO_LOGO:   MACRO
-;*
-;* Nintendo scrolling logo
-;* (Code won't work on a real GameBoy)
-;* (if next six lines are altered.)
- DB $CE,$ED,$66,$66,$CC,$0D,$00,$0B,$03,$73,$00,$83,$00,$0C,$00,$0D
- DB $00,$08,$11,$1F,$88,$89,$00,$0E,$DC,$CC,$6E,$E6,$DD,$DD,$D9,$99
- DB $BB,$BB,$67,$63,$6E,$0E,$EC,$CC,$DD,$DC,$99,$9F,$BB,$B9,$33,$3E
-        ENDM
 
 ROM_HEADER:   MACRO
 ;*
