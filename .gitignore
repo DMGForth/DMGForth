@@ -1,0 +1,6 @@
+*.gb
+*.gbc
+*.sav
+*.sym
+*.o
+inc/version.inc
