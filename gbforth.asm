@@ -66,7 +66,7 @@ begin:
 	ld	sp, $ffff
 
 	Console
-
+	
 	Print Line1, 0, 0
 	Print Line2, 1, 0
 	Print Line3, 2, 0

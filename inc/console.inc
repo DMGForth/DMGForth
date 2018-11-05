@@ -48,9 +48,9 @@ ENDM
 
 ; Reverse background and foreground in palette
 ReverseVideo: MACRO
-	ld [rBGP], a
-	swap a
 	ld a, [rBGP]
+	swap a
+	ld [rBGP], a
 ENDM
 
 
