@@ -1,4 +1,4 @@
-PROJECT := GBForth
+PROJECT := DMGForth
 VERSION_FILE := version.txt
 RELEASE_VERSION := $(shell cat $(VERSION_FILE))
 DEBUG_VERSION := $(shell git log -1 --format=%cd --date=short)

@@ -1,4 +1,4 @@
-# GBForth
+# DMGForth
 Forth on Gameboy
 
 This is not yet working. It is currently a work in progress
