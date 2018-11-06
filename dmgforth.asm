@@ -1,6 +1,8 @@
-;===========;
-;; GBForth ;;
-;===========;
+;============;
+;; DMGForth ;;
+;============;
+
+PROJECT_NAME EQUS "DMGForth"
 
 INCLUDE "version.inc" ; Defines VERSION
 INCLUDE "gbhw.inc" ; standard hardware definitions from devrs.com
@@ -38,9 +40,9 @@ INCLUDE "nintendo_logo.inc"
 INCLUDE "cart.inc" ; Includes constants for cart specs
 
 IF DEF(DEBUG)
-	DB "GBForth dev",0,0,0,0	; Cart name - 15bytes
+	DB "DMGForth dev",0,0,0	; Cart name - 15bytes
 ELSE
-	DB "GBForth",0,0,0,0,0,0,0,0 	; Cart name - 15bytes
+	DB "DMGForth",0,0,0,0,0,0,0 	; Cart name - 15bytes
 ENDC
 	DB 0	; $143
 	DB 0,0	; $144 - Licensee code (not important)
@@ -81,7 +83,7 @@ wait:
 ; hard-coded data
 ; ****************************************************************************************
 Line1:
-	DB	"GBForth "
+	DB	"DMGForth "
 IF DEF(DEBUG)
 	DB 	"dev build", 0
 ELSE
