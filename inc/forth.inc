@@ -1,6 +1,8 @@
 IF !DEF(FORTH_INC)
 FORTH_INC EQU 1
 
+INCLUDE "extended_instructions.inc"
+
 
 NextWord:
 	dw 0
@@ -16,15 +18,18 @@ NEXT: MACRO
 	ld b, [hl]
 	inc hl
 	ld c, [hl]
+	; LD_BC_pn16 NextWord
 
 	; Increment Pointer
 	ld hl, NextWord
+	; LD_HL_n16 NextWord
 	inc [hl]
 	inc [hl]
 
 	; Jump to old poiner's value
 	ld h, b
 	ld l, c
+	; LD_HL_BC
 	jp hl
 
 	; Leave pointer in 'hl' (used by DOCOL)
@@ -36,19 +41,24 @@ PUSHRSP: MACRO ; takes 'hl'
 	; move value to 'bc'
 	ld b, h
 	ld c, l
+	; LD_BC_HL
 
 	; move pointer back
 	ld h, d
 	ld l, e
+	; LD_HL_DE
 	ld bc, $fffe ; unsigned -2 (utilize overflow)
+	; LD_BC_n16 $fffe
 	add hl, bc
 	ld d, h
 	ld e, l
+	; LD_DE_HL
 	
 	; store value
 	ld [hl], b
 	inc hl
 	ld [hl], c
+	; LD_pHL_BC
 ENDM
 
 
