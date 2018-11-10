@@ -42,11 +42,10 @@ $(OBJ_DIR)%.o: %.asm $(INC)
 $(OBJ_DIR)%_dbg.o: %.asm $(INC)
 	rgbasm $(ASMFLAGS) -DDEBUG=1 -E -o $@ $<
 
-$(SYMBOL_FILE): $(DBG_OBJ)
-	rgblink -n $@ $^
+$(SYMBOL_FILE): $(DEBUG_TARGET)
 
 $(DEBUG_TARGET): $(DBG_OBJ)
-	rgblink -o $@ $^
+	rgblink -n $(SYMBOL_FILE) -o $@ $^
 	rgbfix -v -p 0 $@
 
 $(RELEASE_TARGET): $(OBJ)

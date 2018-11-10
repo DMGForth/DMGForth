@@ -56,16 +56,20 @@ ENDC
 	DB 0	; $14d - Complement check (important)
 	DW 0	; $14e - Checksum (not important)
 
-
-INCLUDE "memory.inc"
+INCLUDE "forth.inc"
 
 INCLUDE "console.inc"
 
 begin:
 	di
 
-	; Initialize stack
-	ld	sp, $ffff
+	; Disable sound
+	ld a, 0
+	ld [rAUDENA], a
+
+	; Initialize stacks
+	ld sp, DataStackBottom
+	ld de, ReturnStackBottom
 
 	Console
 	
@@ -73,7 +77,10 @@ begin:
 	Print Line2, 1, 0
 	Print Line3, 2, 0
 	Print Line4, 3, 0
-	
+	Print Prompt, 4, 0
+breakpoint:	
+	ld a, $EE
+	PUSHRSP a
 wait:
 	halt
 	nop
@@ -96,3 +103,5 @@ Line3:
 	DB "Brayden Morris", 0
 Line4:
 	DB "MIT License", 0
+Prompt:
+	db ">", 0

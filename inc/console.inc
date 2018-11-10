@@ -84,6 +84,9 @@ ENDM
 
 
 Print: MACRO
+	; save return stack (de)
+	push de
+
 	ld de, _SCRN0 + \3 + (SCRN_VY_B * \2)
 	ld hl, \1
 .loop\@
@@ -96,11 +99,16 @@ Print: MACRO
 	inc de
 	jr .loop\@
 .break\@
+	; restore return stack (de)
+	pop de
 ENDM
 
 
 
 Console: MACRO
+	; save return stack (de)
+	push de
+
 	StopLCD
 
 	NormalVideo
@@ -133,6 +141,9 @@ Console: MACRO
 	ld [rLCDC], a
 
 	ClearScreen
+	
+	; restore return stack (de)
+	pop de
 ENDM
 
 ENDC ; CONSOLE_INC
