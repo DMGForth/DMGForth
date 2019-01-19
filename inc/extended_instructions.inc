@@ -28,6 +28,8 @@ EXTENDED_INSTRUCTIONS EQU 1
 INCLUDE "ld_r8_n8.inc"
 INCLUDE "ld_r8_r8.inc"
 INCLUDE "ld_r16_r8.inc"
+INCLUDE "ld_r16_n16.inc"
+INCLUDE "ld_r16_pr16.inc"
 
 
 

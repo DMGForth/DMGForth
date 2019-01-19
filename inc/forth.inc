@@ -14,15 +14,13 @@ ReturnStackBottom EQU $cfff ; End of working ram 0 (wram0)
 
 NEXT: MACRO
 	; Save old pointer's value
-	ld hl, NextWord
-	ld b, [hl]
-	inc hl
-	ld c, [hl]
-	; LD_BC_pn16 NextWord
+	LD_HL_n16 NextWord
+	; ld b, [hl]
+	; inc hl
+	; ld c, [hl]
+	LD_BC_pHL
 
 	; Increment Pointer
-	ld hl, NextWord
-	; LD_HL_n16 NextWord
 	inc [hl]
 	inc [hl]
 
